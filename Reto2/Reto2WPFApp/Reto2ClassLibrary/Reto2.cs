@@ -1,17 +1,34 @@
 ﻿namespace Reto2ClassLibrary
 {
+    using System;
     using System.Linq;
 
     public class Reto2 : IReto2
     {
-        public event System.EventHandler EventFired;
+        private event EventHandler privateEventFired;
+
+        public event EventHandler EventFired
+        {
+            add
+            {
+                // Only allow to register 'Item' objects.
+                if (value != null && value.Target.GetType().IsAssignableFrom(typeof(Item)))
+                {
+                    privateEventFired += value;
+                }
+            }
+            remove
+            {
+                privateEventFired -= value;
+            }
+        }
+        
 
         public void FireEvent()
         {
-            if (EventFired != null)
+            if (privateEventFired != null)
             {
-                var invocationCollection = EventFired.GetInvocationList()
-                    .Where(x => x.Target.GetType().Equals(typeof(Item)))
+                var invocationCollection = privateEventFired.GetInvocationList()
                     .OrderBy(x => ((Item)x.Target).Index);
 
                 foreach (var item in invocationCollection)
