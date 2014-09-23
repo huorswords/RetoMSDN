@@ -1,7 +1,5 @@
 ﻿namespace Reto2ClassLibrary
 {
-    using System;
-    using System.Collections;
     using System.Linq;
 
     public class Reto2 : IReto2
