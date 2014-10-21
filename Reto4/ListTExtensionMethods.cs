@@ -11,29 +11,22 @@ namespace Shuffler
 
         public static List<TObject> Shuffle<TObject>(this List<TObject> obj)
         {
-            var input = obj.ToArray();
+            TObject[] input = obj.ToArray();
+            int swap;
             for (var top = input.Length - 1; top > 0; --top)
             {
-                var swap =
-                    generator.Next(0, top);
-                while (swap == top)
-                {
-                    swap =
-                        generator.Next(0, top);
-                }
-                
-                input.Swap(top, swap);
+                swap = generator.Next(top);
+                Swap(ref input[top], ref input[swap]);
             }
 
             return new List<TObject>(input);
         }
-
-        public static TObject[] Swap<TObject>(this TObject[] list, int indexA, int indexB)
+        
+        private static void Swap<TObject>(ref TObject first, ref TObject second)
         {
-            var tmp = list[indexA];
-            list[indexA] = list[indexB];
-            list[indexB] = tmp;
-            return list;
+            TObject tmp = first;
+            first = second;
+            second = tmp;
         }
     }
 }
