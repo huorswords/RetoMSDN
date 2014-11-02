@@ -8,7 +8,7 @@
 
     public static class ObjectExtensionMethods
     {
-        public static object NotNull(this object obj)
+        public static TType NotNull<TType>(this TType obj) where TType : class
         {
             if (obj == null)
             {
@@ -18,7 +18,7 @@
             return obj;
         }
 
-        public static object NotNull(this object obj, string name)
+        public static TType NotNull<TType>(this TType obj, string name) where TType : class
         {
             if (obj == null)
             { 
