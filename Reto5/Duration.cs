@@ -4,6 +4,10 @@
 
     public class Duration
     {
+        private static Duration _day = new Duration(x => 1);
+        private static Duration _week = new Duration(x => 7);
+        private static Duration _month = new Duration(x => (int)DateTime.DaysInMonth(x.Year, x.Month));
+
         private Func<DateTime, int> calculator;
         
         private Duration(Func<DateTime, int> offsetCalculator)
@@ -15,14 +19,14 @@
         {
             get
             {
-                return new Duration(x => 1);
+                return _day;
             }
         }
 
         public static Duration Week {
             get 
             { 
-                return new Duration(x => 7); 
+                return _week; 
             }
          }
 
@@ -30,7 +34,7 @@
         {
             get
             {
-                return new Duration(x => (int)DateTime.DaysInMonth(x.Year, x.Month) );
+                return _month;
             }
         }
 
