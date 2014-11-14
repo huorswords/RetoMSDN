@@ -47,17 +47,7 @@
         {
             get
             {
-                int count = 0;
-
-                foreach (var current in this.inner.Values)
-                {
-                    if (current.IsAlive)
-                    {
-                        count++;
-                    }
-                }
-                
-                return count;
+                return this.inner.Values.Where(x => x.IsAlive).Count();
             }
         }
 
@@ -102,15 +92,8 @@
             {
                 get
                 {
-                    KeyValuePairs[] keys = new KeyValuePairs[cache.inner.Count];
-
-                    int i = 0;
-                    foreach (int key in cache.Keys)
-                    {
-                        keys[i] = new KeyValuePairs(cache, key, cache[key]);
-                        i++;
-                    }
-                    return keys;
+                    return cache.Keys
+                        .Select(x => new KeyValuePairs(cache, x, cache[x])).ToArray();
                 }
             }
         }
