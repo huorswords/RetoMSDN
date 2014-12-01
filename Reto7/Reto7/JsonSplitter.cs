@@ -45,7 +45,7 @@
                 stream.Close();
             }
 
-            return jsonText.Replace(@"\/", @"/");
+            return jsonText;
         }
     }
 }
