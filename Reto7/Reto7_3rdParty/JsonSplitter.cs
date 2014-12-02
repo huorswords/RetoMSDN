@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Reto7
+﻿namespace Reto7
 {
     using Newtonsoft.Json;
+    using System.Linq;
 
     public class JsonSplitter
     {
