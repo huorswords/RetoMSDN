@@ -12,12 +12,13 @@ namespace Reto7
     {
         public static JsonResult SplitShowsByGenre(string jsonString, string genre)
         {
-            Show[] collection = JsonConvert.DeserializeObject<Show[]>(jsonString);
+            var groups = JsonConvert.DeserializeObject<Show[]>(jsonString)
+                .ToLookup(x => x.genres.Contains(genre));
 
             return new JsonResult
             {
-                Item1 = JsonConvert.SerializeObject(collection.Where(x => x.genres.Contains(genre))),
-                Item2 = JsonConvert.SerializeObject(collection.Where(x => !x.genres.Contains(genre))),
+                Item1 = JsonConvert.SerializeObject(groups[true]),
+                Item2 = JsonConvert.SerializeObject(groups[false]),
             };            
         }
     }
