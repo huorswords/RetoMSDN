@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reto7_3rdParty", "..\Reto7_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reto7.fastJson", "..\Reto7.fastJson\Reto7.fastJson.csproj", "{02A13668-4A06-4748-BF5E-19CFCC7F1C04}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reto7.ServiceStack", "..\Reto7.ServiceStack\Reto7.ServiceStack.csproj", "{094C2C1F-F758-480E-9A1D-D283F6329AF6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{02A13668-4A06-4748-BF5E-19CFCC7F1C04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02A13668-4A06-4748-BF5E-19CFCC7F1C04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02A13668-4A06-4748-BF5E-19CFCC7F1C04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{094C2C1F-F758-480E-9A1D-D283F6329AF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{094C2C1F-F758-480E-9A1D-D283F6329AF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{094C2C1F-F758-480E-9A1D-D283F6329AF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{094C2C1F-F758-480E-9A1D-D283F6329AF6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
