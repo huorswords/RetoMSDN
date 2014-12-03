@@ -9,7 +9,7 @@
 
     public class JsonSplitter
     {
-        public static JsonResult SplitShowsByGenre(string inputShows, string genre)
+        public static Tuple<string, string> SplitShowsByGenre(string inputShows, string genre)
         {
             Show[] jsonDeserialized = null;
             DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(Show[]));
@@ -20,11 +20,9 @@
                 stream.Close();
             }
 
-            return new JsonResult
-            {
-                Item1 = JsonSplitter.GetJsonFrom(serializer, jsonDeserialized.Where(x => x.genres.Contains(genre))).ToString(),
-                Item2 = JsonSplitter.GetJsonFrom(serializer, jsonDeserialized.Where(x => !x.genres.Contains(genre))).ToString(),
-            };
+            return new Tuple<string, string>(
+                JsonSplitter.GetJsonFrom(serializer, jsonDeserialized.Where(x => x.genres.Contains(genre))).ToString(),
+                JsonSplitter.GetJsonFrom(serializer, jsonDeserialized.Where(x => !x.genres.Contains(genre))).ToString());
         }
 
         private static string GetJsonFrom(DataContractJsonSerializer serializer, IEnumerable<Show> collection)
